@@ -29,7 +29,7 @@ Dados institucionais da **FAMCORE HEVEA LTDA** para apresentação no site:
 | CNPJ | **23.146.485/0001-21** |
 | D-U-N-S | **937043988** |
 | Endereço | **Rua Brigadeiro Faria Lima, 1140, Conj. 115, São Paulo/SP, CEP 01452-001** |
-| Telefone | **+55 (19) 99868-7434** |
+| Telefone | **+55 (11) 94584-3491** |
 | E-mail institucional | **contato@famcore.com.br** |
 | Site institucional | **https://famcore.com.br/** |
 | GitHub | **https://github.com/FAMCORE-Hevea** |
