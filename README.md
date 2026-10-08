@@ -18,6 +18,34 @@ Substituir a atual página temporária “Em breve” por um site institucional 
 
 O agente deve estudar o repositório do aplicativo antes de descrever funcionalidades, público-alvo ou disponibilidade nas lojas. Não inventar recursos nem alegar que o app já está publicado.
 
+## Dados cadastrais e contatos da organização
+
+Estes dados devem servir como referência para o desenvolvimento do site, distinguindo **dados declarados em processos de inscrição** de **dados confirmados em registro oficial atualizado**.
+
+| Campo | Informação disponível | Situação / origem |
+| --- | --- | --- |
+| Marca | FAMCORE HEVEA | Identidade do projeto |
+| Razão social informada | FAMCORE HEVEA LTDA | Informada pelo responsável nos cadastros de desenvolvedor |
+| CNPJ informado | **23.146.485/0001-21** | Informado pelo responsável; **validar razão social vinculada antes de divulgar no site** |
+| D-U-N-S | **937043988** | Utilizado nos processos de cadastro Apple/Google |
+| Endereço informado à Apple | **Rua Brigadeiro Faria Lima, 1140, Conj. 115, São Paulo/SP, CEP 01452-001** | Consta em dados de inscrição Apple Developer de 30/09/2026; conferir grafia, município, CEP e endereço comercial oficial antes da publicação |
+| Telefone informado à Apple | **+55 (19) 99868-7434** | Consta em dados de inscrição Apple Developer de 30/09/2026; confirmar se é um canal comercial autorizado para divulgação pública |
+| E-mail institucional | **contato@famcore.com.br** | Canal indicado pelo responsável |
+| Website | **https://famcore.com.br/** | Domínio institucional pretendido |
+| GitHub | **https://github.com/FAMCORE-Hevea** | Organização do projeto |
+
+### Atenção: divergência de dados públicos de CNPJ
+
+Na consulta realizada em 08/10/2026, páginas públicas de consulta de CNPJ ainda associavam o número **23.146.485/0001-21** ao nome **“23.146.485 Felipi Murbach Franco”** e a um endereço em **Rio Claro/SP**, em vez de FAMCORE HEVEA LTDA e do endereço informado no cadastro Apple.
+
+Referências para investigação (fontes secundárias, potencialmente desatualizadas):
+- https://cnpj.biz/23146485000121
+- https://toreva.com.br/consulta-cnpj/23146485000121-23-146-485-felipi-murbach-franco
+
+**Não interpretar esse desencontro como prova de cadastro errado:** os indexadores podem estar desatualizados. Antes de incluir CNPJ, endereço e telefone no rodapé, na seção Contato ou nos dados estruturados `Organization`, comparar o comprovante atualizado de inscrição e situação cadastral da Receita Federal, o cadastro D&B e os dados atuais dos perfis Apple/Google. Caso haja divergência, pedir confirmação ao responsável em vez de escolher uma versão por conta própria.
+
+Os dados acima estão documentados para que o agente **não omita** as informações necessárias, mas **não autorizam divulgar dados cadastrais contraditórios como se já estivessem verificados**.
+
 ## 1. Contexto e posicionamento
 
 A FAMCORE HEVEA desenvolve tecnologias e softwares orientados às necessidades reais da heveicultura, unindo conhecimento prático da atividade e desenvolvimento tecnológico.
@@ -68,7 +96,8 @@ Se o repositório do aplicativo estiver inacessível, registrar essa limitação
 - Nome oficial: **FAMCORE HEVEA LTDA**.
 - E-mail institucional: **contato@famcore.com.br**.
 - Domínio: **famcore.com.br**.
-- Publicar telefone, endereço comercial e demais dados cadastrais somente após confirmação e autorização.
+- Utilizar os dados de telefone, endereço e CNPJ indicados em **Dados cadastrais e contatos da organização**, após confirmar a situação cadastral e a autorização para divulgação pública.
+- Exibir os contatos em formato legível e com links `mailto:` e `tel:` quando confirmados.
 
 ### Privacidade e termos
 
@@ -152,7 +181,7 @@ O site também deve servir como fonte institucional pública para processos de v
 
 Exibir claramente:
 
-- **FAMCORE HEVEA LTDA**.
+- **FAMCORE HEVEA LTDA**, com CNPJ, telefone e endereço após reconciliação documental conforme a seção cadastral.
 - Descrição objetiva da atuação.
 - Produtos e soluções reais.
 - Contato institucional.
@@ -176,7 +205,7 @@ O site não deve ser somente uma página “Em breve”, uma página vazia, a p�
 
 1. Inspecionar código, documentação, ativos e configuração deste repositório.
 2. Estudar o aplicativo no outro repositório sem modificá-lo.
-3. Confirmar informações empresariais e materiais oficiais de marca.
+3. Verificar a tabela de dados cadastrais, resolver a divergência pública de CNPJ com comprovante oficial atualizado e confirmar telefone/endereço publicáveis; conferir também materiais oficiais de marca.
 4. Planejar e implementar páginas e navegação, preservando a stack.
 5. Testar build, responsividade, acessibilidade, links e SEO.
 6. Publicar com as permissões e autorizações disponíveis.
