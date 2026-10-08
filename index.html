@@ -3,30 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Site institucional da FAMCORE" />
-    <title>FAMCORE</title>
+    <meta name="description" content="FAMCORE HEVEA LTDA — tecnologia e soluções digitais para a heveicultura e a cadeia produtiva da borracha natural. Informações da empresa e contato institucional." />
+    <title>FAMCORE HEVEA LTDA | Tecnologia para heveicultura</title>
   </head>
-  <body class="bg-canvas font-sans text-foreground antialiased">
-    <main class="grid min-h-svh place-items-center px-6 py-12">
-      <section class="w-full max-w-5xl text-center">
-        <p class="mb-6 text-xs font-semibold uppercase tracking-widest text-earth">
-          Do campo aos dados
-        </p>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <header class="site-header container">
+      <a class="wordmark" href="#inicio" aria-label="FAMCORE HEVEA — início">FAMCORE <span>HEVEA</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#empresa">Empresa</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
 
-        <h1 class="text-[clamp(4rem,12vw,8rem)] leading-none font-bold tracking-tighter text-brand">
-          FAMCORE
-        </h1>
+    <main id="conteudo">
+      <section class="hero container" id="inicio" aria-labelledby="titulo">
+        <p class="eyebrow">Tecnologia para a heveicultura</p>
+        <h1 id="titulo">Tecnologia desenvolvida por quem entende de heveicultura.</h1>
+        <p class="hero-description">Soluções digitais para aproximar a atividade no campo das informações que apoiam o seu acompanhamento.</p>
+        <a class="button" href="#contato">Entre em contato <span aria-hidden="true">↗</span></a>
+      </section>
 
-        <p class="mx-auto mt-8 max-w-xl text-[clamp(1rem,2vw,1.25rem)] leading-relaxed text-pretty text-foreground-muted">
-          Tecnologia desenvolvida por quem entende de heveicultura.
-        </p>
+      <section class="company-section" id="empresa" aria-labelledby="empresa-titulo">
+        <div class="container company-grid">
+          <div>
+            <p class="eyebrow">A empresa</p>
+            <h2 id="empresa-titulo">Conhecimento do campo.<br />Desenvolvimento tecnológico.</h2>
+          </div>
+          <div class="company-copy">
+            <p>A <strong>FAMCORE HEVEA LTDA</strong> é uma empresa brasileira de tecnologia dedicada ao desenvolvimento de softwares e soluções digitais para a heveicultura e a cadeia produtiva da borracha natural.</p>
+            <p>Nosso trabalho une conhecimento prático da atividade ao desenvolvimento tecnológico, com foco em organizar informações e tornar seu acompanhamento mais simples.</p>
+            <h3>FAMCORE Hevea App</h3>
+            <p>Aplicativo voltado a fornecedores da cadeia da borracha natural, para acompanhamento da produção, dos volumes entregues e dos recebimentos associados às suas propriedades.</p>
+          </div>
+        </div>
+      </section>
 
-        <p class="mt-9 text-sm font-semibold uppercase tracking-widest text-earth">
-          Em breve
-        </p>
+      <section class="contact-section container" id="contato" aria-labelledby="contato-titulo">
+        <div class="contact-intro">
+          <p class="eyebrow">Contato institucional</p>
+          <h2 id="contato-titulo">Vamos conversar.</h2>
+          <p>Entre em contato para informações sobre a empresa e suas soluções.</p>
+          <a class="contact-email" href="mailto:contato@famcore.com.br">contato@famcore.com.br</a>
+          <a class="contact-phone" href="tel:+5511945843491">+55 (11) 94584-3491</a>
+        </div>
+        <div class="business-card">
+          <h3>FAMCORE HEVEA LTDA</h3>
+          <dl>
+            <div><dt>CNPJ</dt><dd>23.146.485/0001-21</dd></div>
+            <div><dt>Endereço</dt><dd><address>Rua Brigadeiro Faria Lima, 1140, Conj. 115<br />São Paulo/SP · CEP 01452-001</address></dd></div>
+            <div><dt>Domínio institucional</dt><dd><a href="https://famcore.com.br/">famcore.com.br</a></dd></div>
+          </dl>
+        </div>
       </section>
     </main>
 
+    <footer class="site-footer container">
+      <p>FAMCORE HEVEA LTDA · Tecnologia para heveicultura.</p>
+    </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
