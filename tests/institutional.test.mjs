@@ -23,6 +23,12 @@ test('os dados estruturados da organização são JSON válido e coerentes com o
   assert.equal(org.address.postalCode, '01452-001');
 });
 
+test('o compartilhamento em redes sociais tem imagem, título e descrição', () => {
+  assert.match(html, /<meta property="og:image" content="https:\/\/famcore\.com\.br\/og-image\.jpg"/);
+  assert.match(html, /<meta property="og:description" content="[^"]+"/);
+  assert.ok(readFileSync(new URL('../public/og-image.jpg', import.meta.url)).length > 0, 'og-image.jpg ausente');
+});
+
 test('a política de privacidade existe, está linkada e identifica a empresa', () => {
   assert.ok(html.includes('href="/privacidade/"'));
   for (const text of ['FAMCORE HEVEA LTDA', '23.146.485/0001-21', 'contato@famcore.com.br', 'GitHub Pages']) {
