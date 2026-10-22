@@ -3,63 +3,370 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="FAMCORE HEVEA LTDA — tecnologia e soluções digitais para a heveicultura e a cadeia produtiva da borracha natural. Informações da empresa e contato institucional." />
     <title>FAMCORE HEVEA LTDA | Tecnologia para heveicultura</title>
+    <meta name="description" content="FAMCORE HEVEA LTDA — empresa brasileira de tecnologia especializada em heveicultura. Desenvolve o FAMCORE Hevea App, aplicativo para empresas da cadeia da borracha natural oferecerem aos seus fornecedores o acompanhamento de produção, entregas e pagamentos." />
+    <meta name="theme-color" content="#06100b" />
+    <link rel="canonical" href="https://famcore.com.br/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>document.documentElement.classList.add('js')</script>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="FAMCORE HEVEA" />
+    <meta property="og:url" content="https://famcore.com.br/" />
+    <meta property="og:title" content="FAMCORE HEVEA LTDA | Tecnologia para heveicultura" />
+    <meta property="og:description" content="Tecnologia desenvolvida por quem entende de heveicultura. Conheça o FAMCORE Hevea App." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FAMCORE HEVEA LTDA",
+        "legalName": "FAMCORE HEVEA LTDA",
+        "alternateName": "FAMCORE HEVEA",
+        "description": "Empresa brasileira de tecnologia especializada em heveicultura.",
+        "url": "https://famcore.com.br/",
+        "email": "contato@famcore.com.br",
+        "telephone": "+55-11-94584-3491",
+        "taxID": "23.146.485/0001-21",
+        "duns": "937043988",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Brigadeiro Faria Lima, 1140, Conj. 115",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "01452-001",
+          "addressCountry": "BR"
+        },
+        "sameAs": ["https://github.com/FAMCORE-Hevea"]
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-    <header class="site-header container">
-      <a class="wordmark" href="#inicio" aria-label="FAMCORE HEVEA — início">FAMCORE <span>HEVEA</span></a>
-      <nav aria-label="Navegação principal">
-        <a href="#empresa">Empresa</a>
-        <a href="#contato">Contato</a>
-      </nav>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="#inicio" aria-label="FAMCORE HEVEA — início">FAMCORE <span>HEVEA</span></a>
+        <nav class="nav-links" aria-label="Navegação principal">
+          <a href="#produto">Produto</a>
+          <a href="#seguranca">Segurança</a>
+          <a href="#empresas">Para empresas</a>
+          <a href="#empresa">Empresa</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <a class="button button-small" href="#contato">Fale conosco</a>
+      </div>
     </header>
 
     <main id="conteudo">
-      <section class="hero container" id="inicio" aria-labelledby="titulo">
-        <p class="eyebrow">Tecnologia para a heveicultura</p>
-        <h1 id="titulo">Tecnologia desenvolvida por quem entende de heveicultura.</h1>
-        <p class="hero-description">Soluções digitais para aproximar a atividade no campo das informações que apoiam o seu acompanhamento.</p>
-        <a class="button" href="#contato">Entre em contato <span aria-hidden="true">↗</span></a>
+      <!-- Hero -->
+      <section class="hero dark" id="inicio" aria-labelledby="titulo">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-copy">
+          <p class="pill reveal"><span class="dot" aria-hidden="true"></span> FAMCORE Hevea App</p>
+          <h1 id="titulo" class="reveal">Tecnologia desenvolvida por quem entende de <span class="gradient-text">heveicultura.</span></h1>
+          <p class="lead reveal">Um aplicativo para empresas da cadeia da borracha natural oferecerem aos seus fornecedores o acompanhamento da produção, das entregas e dos pagamentos — com a marca da própria empresa.</p>
+          <div class="actions reveal">
+            <a class="button" href="#contato">Leve para a sua empresa</a>
+            <a class="button button-ghost" href="#produto">Conheça o app <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="container hero-phones reveal" aria-hidden="true">
+          <div class="phone phone-side"><div class="screen"><img src="/app/02-entregas.webp" width="760" height="1654" alt="" /></div></div>
+          <div class="phone phone-main"><div class="screen"><img src="/app/01-visao-geral.webp" width="760" height="1654" alt="" fetchpriority="high" /></div></div>
+          <div class="phone phone-side"><div class="screen"><img src="/app/03-financeiro.webp" width="760" height="1654" alt="" /></div></div>
+        </div>
       </section>
 
-      <section class="company-section" id="empresa" aria-labelledby="empresa-titulo">
-        <div class="container company-grid">
-          <div>
-            <p class="eyebrow">A empresa</p>
-            <h2 id="empresa-titulo">Conhecimento do campo.<br />Desenvolvimento tecnológico.</h2>
+      <!-- Produto -->
+      <section class="section light" id="produto" aria-labelledby="produto-titulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">O aplicativo</p>
+            <h2 id="produto-titulo">Tudo o que o fornecedor precisa acompanhar, em&nbsp;um&nbsp;só&nbsp;lugar.</h2>
+            <p class="section-lead">Quatro telas respondem ao que ele mais quer saber: como está a produção, o que foi entregue, o que já foi pago e como o período evoluiu.</p>
+          </header>
+
+          <div class="bento reveal" id="telas" tabindex="0" role="region" aria-label="Telas do app">
+            <article class="tile tile-phone">
+              <div class="tile-copy">
+                <p class="eyebrow">Visão geral</p>
+                <h3>Os números que importam, logo na abertura.</h3>
+                <p>Volume entregue, valores bruto e líquido, preço médio por quilo e rendimento médio (DRC) do período.</p>
+              </div>
+              <div class="phone phone-peek"><div class="screen"><img src="/app/01-visao-geral.webp" width="760" height="1654" alt="Tela de visão geral do app com total entregue, valor produzido, preço médio e rendimento médio" loading="lazy" /></div></div>
+            </article>
+
+            <article class="tile tile-phone">
+              <div class="tile-copy">
+                <p class="eyebrow">Entregas</p>
+                <h3>Cada entrega, com viagem, volume e&nbsp;DRC.</h3>
+                <p>Entregas organizadas por data, da mais recente à mais antiga, com preço, valores e situação do pagamento. Enquanto o rendimento não é apurado, a entrega aparece como <em>em análise</em>.</p>
+              </div>
+              <div class="phone phone-peek"><div class="screen"><img src="/app/02-entregas.webp" width="760" height="1654" alt="Tela de entregas com volume total do período e detalhes de cada entrega" loading="lazy" /></div></div>
+            </article>
+
+            <article class="tile tile-phone">
+              <div class="tile-copy">
+                <p class="eyebrow">Financeiro</p>
+                <h3>O que já foi pago e o que ainda vai&nbsp;entrar.</h3>
+                <p>Valores líquido e bruto, INSS descontado e preço médio, com filtro entre pagamentos <strong>pagos</strong> e <strong>pendentes</strong> e um resumo do que falta receber.</p>
+              </div>
+              <div class="phone phone-peek"><div class="screen"><img src="/app/03-financeiro.webp" width="760" height="1654" alt="Tela financeira com valor líquido recebido, valor a receber e lista de pagamentos" loading="lazy" /></div></div>
+            </article>
+
+            <article class="tile tile-phone">
+              <div class="tile-copy">
+                <p class="eyebrow">Desempenho</p>
+                <h3>Como o período evoluiu.</h3>
+                <p>Gráficos de volume entregue, recebimentos e rendimento ao longo do período escolhido.</p>
+              </div>
+              <div class="phone phone-peek"><div class="screen"><img src="/app/04-graficos.webp" width="760" height="1654" alt="Gráficos de volume entregue, evolução dos recebimentos e rendimento" loading="lazy" /></div></div>
+            </article>
           </div>
-          <div class="company-copy">
+          <div class="carousel-nav">
+            <button type="button" data-scroll="-1" aria-controls="telas" aria-label="Tela anterior">←</button>
+            <button type="button" data-scroll="1" aria-controls="telas" aria-label="Próxima tela">→</button>
+          </div>
+
+          <ul class="features" aria-label="Outros recursos do app">
+            <li class="feature reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 11h18" /></svg>
+              <h3>Período flexível</h3>
+              <p>Últimos 1, 3, 6 ou 12 meses ou um intervalo personalizado, aplicado a todas as telas.</p>
+            </li>
+            <li class="feature reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11" /><path d="M10 21v-6h4v6" /></svg>
+              <h3>Várias propriedades</h3>
+              <p>Quem tem mais de uma propriedade alterna entre elas sem sair da tela.</p>
+            </li>
+            <li class="feature reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6M8 13h8M8 17h5" /></svg>
+              <h3>Notas fiscais</h3>
+              <p>As notas das entregas do período, com o PDF para consulta.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Plataformas -->
+      <section class="section platforms" aria-labelledby="plataformas-titulo">
+        <div class="container platforms-inner reveal">
+          <h2 id="plataformas-titulo">Um só aplicativo.<br /><span class="muted">iOS, Android e web.</span></h2>
+          <p class="section-lead">Celular, tablet ou computador: o fornecedor consulta seus dados onde preferir.</p>
+        </div>
+      </section>
+
+      <!-- Segurança -->
+      <section class="section dark security" id="seguranca" aria-labelledby="seguranca-titulo">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container">
+          <header class="section-head section-head-center reveal">
+            <svg class="shield" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z" /><path d="M8.5 12l2.5 2.5 4.5-5" /></svg>
+            <p class="eyebrow">Segurança e privacidade</p>
+            <h2 id="seguranca-titulo">Protegido do início ao&nbsp;fim.</h2>
+            <p class="section-lead">Produção e pagamentos são informações sensíveis. Por isso, cada etapa do caminho dos dados, do sistema da empresa ao celular do fornecedor, tem sua própria camada de proteção.</p>
+          </header>
+
+          <ol class="flow reveal" aria-label="Caminho dos dados">
+            <li class="flow-node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg>
+              <strong>Sistema da empresa</strong>
+              <span>Apenas envia cópias. Nenhum acesso externo à rede da empresa.</span>
+            </li>
+            <li class="flow-link" aria-hidden="true"><span>Cópia criptografada</span></li>
+            <li class="flow-node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg>
+              <strong>Nuvem FAMCORE</strong>
+              <span>Na AWS, protegida pela Cloudflare, com réplica própria e isolada.</span>
+            </li>
+            <li class="flow-link" aria-hidden="true"><span>HTTPS</span></li>
+            <li class="flow-node">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg>
+              <strong>App do fornecedor</strong>
+              <span>Cada fornecedor vê apenas os próprios dados.</span>
+            </li>
+          </ol>
+
+          <div class="providers reveal">
+            <p class="eyebrow">Infraestrutura</p>
+            <div class="provider-grid">
+              <article class="provider">
+                <svg class="provider-logo" viewBox="0 0 24 24" role="img" aria-label="Logotipo da AWS"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z" /></svg>
+                <h3>Amazon Web Services</h3>
+                <p>Servidores, armazenamento e criptografia dos dados na AWS, uma das maiores plataformas de nuvem do mundo.</p>
+                <p class="badges"><span>ISO/IEC 27001</span><span>SOC 2</span></p>
+              </article>
+              <article class="provider">
+                <svg class="provider-logo" viewBox="0 0 24 24" role="img" aria-label="Logotipo da Cloudflare"><path d="M16.5088 16.8447c.1475-.5068.0908-.9707-.1553-1.3154-.2246-.3164-.6045-.499-1.0615-.5205l-8.6592-.1123a.1559.1559 0 0 1-.1333-.0713c-.0283-.042-.0351-.0986-.021-.1553.0278-.084.1123-.1484.2036-.1562l8.7359-.1123c1.0351-.0489 2.1601-.8868 2.5537-1.9136l.499-1.3013c.0215-.0561.0293-.1128.0147-.168-.5625-2.5463-2.835-4.4453-5.5499-4.4453-2.5039 0-4.6284 1.6177-5.3876 3.8614-.4927-.3658-1.1187-.5625-1.794-.499-1.2026.119-2.1665 1.083-2.2861 2.2856-.0283.31-.0069.6128.0635.894C1.5683 13.171 0 14.7754 0 16.752c0 .1748.0142.3515.0352.5273.0141.083.0844.1475.1689.1475h15.9814c.0909 0 .1758-.0645.2032-.1553l.12-.4268zm2.7568-5.5634c-.0771 0-.1611 0-.2383.0112-.0566 0-.1054.0415-.127.0976l-.3378 1.1744c-.1475.5068-.0918.9707.1543 1.3164.2256.3164.6055.498 1.0625.5195l1.8437.1133c.0557 0 .1055.0263.1329.0703.0283.043.0351.1074.0214.1562-.0283.084-.1132.1485-.204.1553l-1.921.1123c-1.041.0488-2.1582.8867-2.5527 1.914l-.1406.3585c-.0283.0713.0215.1416.0986.1416h6.5977c.0771 0 .1474-.0489.169-.126.1122-.4082.1757-.837.1757-1.2803 0-2.6025-2.125-4.727-4.7344-4.727" /></svg>
+                <h3>Cloudflare</h3>
+                <p>Todo o acesso passa pela rede da Cloudflare, que protege contra ataques e garante HTTPS de ponta a ponta.</p>
+                <p class="badges"><span>ISO/IEC 27001</span><span>SOC 2</span></p>
+              </article>
+            </div>
+            <p class="providers-note">Certificações de segurança da AWS e da Cloudflare, provedores de infraestrutura utilizados pela FAMCORE.</p>
+          </div>
+
+          <div class="layers">
+            <article class="layer reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg>
+              <h3>Na empresa</h3>
+              <ul class="checks">
+                <li>O sistema local só envia cópias de segurança; nenhuma porta é aberta na rede da empresa.</li>
+                <li>A empresa envia seus dados com uma credencial exclusiva, para um espaço isolado.</li>
+                <li>Cópias guardadas com criptografia e versionamento, aceitas apenas por conexão segura.</li>
+                <li>O app só consulta: nenhum registro de produção ou pagamento é alterado.</li>
+              </ul>
+            </article>
+            <article class="layer reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg>
+              <h3>Na nuvem</h3>
+              <ul class="checks">
+                <li>Os dados da empresa ficam em uma réplica própria e isolada.</li>
+                <li>HTTPS obrigatório, com certificado validado de ponta a ponta.</li>
+                <li>Servidores com disco criptografado e sem portas de acesso remoto abertas.</li>
+                <li>Sem chaves de acesso fixas: publicações com identidade temporária e permissões mínimas.</li>
+                <li>Notas fiscais em armazenamento privado, com acesso que expira em dez minutos.</li>
+              </ul>
+            </article>
+            <article class="layer reveal">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg>
+              <h3>No app</h3>
+              <ul class="checks">
+                <li>Login liberado somente após a confirmação do e-mail.</li>
+                <li>Senhas guardadas de forma irreversível e limite de tentativas contra acessos indevidos.</li>
+                <li>A sessão do fornecedor permite apenas consultar dados, nunca alterá-los.</li>
+                <li>Dados vinculados ao CPF: nenhum fornecedor vê a produção ou os pagamentos de outro.</li>
+                <li>No celular, nenhuma senha fica salva, só um código de sessão em área protegida, apagado ao sair.</li>
+              </ul>
+            </article>
+          </div>
+
+          <ul class="pledges reveal" aria-label="Compromissos de privacidade">
+            <li>Não vendemos dados pessoais</li>
+            <li>Sem publicidade ou rastreamento</li>
+            <li>Sem acesso a localização, câmera, microfone ou contatos</li>
+            <li>Política de privacidade própria, com os direitos da LGPD</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Para empresas -->
+      <section class="section empresas" id="empresas" aria-labelledby="empresas-titulo">
+        <div class="container">
+          <header class="section-head reveal">
+            <p class="eyebrow">Para empresas</p>
+            <h2 id="empresas-titulo">Seu aplicativo, com a&nbsp;sua&nbsp;marca.</h2>
+            <p class="section-lead">Cada empresa recebe sua própria instalação do FAMCORE Hevea App: nome, ícone, tela de abertura e endereço próprios, conectados aos dados que a empresa já tem.</p>
+          </header>
+
+          <div class="split">
+            <ol class="steps">
+              <li class="step reveal">
+                <span class="step-n">01</span>
+                <div>
+                  <h3>Conversa</h3>
+                  <p>Entendemos a operação e como os dados de entregas e pagamentos estão organizados.</p>
+                </div>
+              </li>
+              <li class="step reveal">
+                <span class="step-n">02</span>
+                <div>
+                  <h3>Identidade e integração</h3>
+                  <p>Aplicamos a identidade visual da empresa e conectamos o app à sua base de dados.</p>
+                </div>
+              </li>
+              <li class="step reveal">
+                <span class="step-n">03</span>
+                <div>
+                  <h3>Publicação</h3>
+                  <p>O app é publicado no endereço web da empresa, com versões preparadas para iOS e Android.</p>
+                </div>
+              </li>
+            </ol>
+
+            <figure class="code-card reveal">
+              <figcaption><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span> config/sua-empresa.json</figcaption>
+<pre><code><span class="t-p">{</span>
+  <span class="t-k">"name"</span>: <span class="t-s">"Sua Empresa"</span>,
+  <span class="t-k">"bundleIdentifier"</span>: <span class="t-s">"br.com.famcore.suaempresa"</span>,
+  <span class="t-k">"apiUrl"</span>: <span class="t-s">"https://app.suaempresa.com.br"</span>,
+  <span class="t-k">"privacyPolicyUrl"</span>: <span class="t-s">"https://app.suaempresa.com.br/privacidade"</span>,
+  <span class="t-k">"assets"</span>: <span class="t-p">{</span>
+    <span class="t-k">"icon"</span>: <span class="t-s">"./assets/suaempresa/icon.png"</span>,
+    <span class="t-k">"splash"</span>: <span class="t-s">"./assets/suaempresa/splash.png"</span>
+  <span class="t-p">}</span>
+<span class="t-p">}</span></code></pre>
+              <p class="code-note">Exemplo ilustrativo da configuração de uma instalação.</p>
+            </figure>
+          </div>
+
+          <div class="offer-grid">
+            <article class="offer reveal">
+              <h3>Pronto para usar</h3>
+              <p>O FAMCORE Hevea App com a marca da sua empresa e conectado aos seus dados, sem precisar desenvolver nada do zero.</p>
+            </article>
+            <article class="offer reveal">
+              <h3>Sob medida</h3>
+              <p>Quando a operação pede mais, criamos um aplicativo exclusivo, desenhado para os processos da sua empresa.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Empresa -->
+      <section class="section company" id="empresa" aria-labelledby="empresa-titulo">
+        <div class="container company-grid">
+          <div class="reveal">
+            <p class="eyebrow">A empresa</p>
+            <h2 id="empresa-titulo">Conhecimento do campo. Desenvolvimento tecnológico.</h2>
+          </div>
+          <div class="company-copy reveal">
             <p>A <strong>FAMCORE HEVEA LTDA</strong> é uma empresa brasileira de tecnologia dedicada ao desenvolvimento de softwares e soluções digitais para a heveicultura e a cadeia produtiva da borracha natural.</p>
             <p>Nosso trabalho une conhecimento prático da atividade ao desenvolvimento tecnológico, com foco em organizar informações e tornar seu acompanhamento mais simples.</p>
-            <h3>FAMCORE Hevea App</h3>
-            <p>Aplicativo voltado a fornecedores da cadeia da borracha natural, para acompanhamento da produção, dos volumes entregues e dos recebimentos associados às suas propriedades.</p>
           </div>
         </div>
       </section>
 
-      <section class="contact-section container" id="contato" aria-labelledby="contato-titulo">
-        <div class="contact-intro">
-          <p class="eyebrow">Contato institucional</p>
-          <h2 id="contato-titulo">Vamos conversar.</h2>
-          <p>Entre em contato para informações sobre a empresa e suas soluções.</p>
-          <a class="contact-email" href="mailto:contato@famcore.com.br">contato@famcore.com.br</a>
-          <a class="contact-phone" href="tel:+5511945843491">+55 (11) 94584-3491</a>
-        </div>
-        <div class="business-card">
-          <h3>FAMCORE HEVEA LTDA</h3>
-          <dl>
-            <div><dt>CNPJ</dt><dd>23.146.485/0001-21</dd></div>
-            <div><dt>Endereço</dt><dd><address>Rua Brigadeiro Faria Lima, 1140, Conj. 115<br />São Paulo/SP · CEP 01452-001</address></dd></div>
-            <div><dt>Domínio institucional</dt><dd><a href="https://famcore.com.br/">famcore.com.br</a></dd></div>
-          </dl>
+      <!-- Contato -->
+      <section class="section dark contact" id="contato" aria-labelledby="contato-titulo">
+        <div class="hero-glow hero-glow-bottom" aria-hidden="true"></div>
+        <div class="container contact-grid">
+          <div class="reveal">
+            <p class="eyebrow">Contato institucional</p>
+            <h2 id="contato-titulo">Vamos levar o app para a sua empresa.</h2>
+            <p class="section-lead">Entre em contato para conhecer o FAMCORE Hevea App ou conversar sobre uma solução sob medida.</p>
+            <a class="contact-email" href="mailto:contato@famcore.com.br">contato@famcore.com.br</a>
+            <a class="contact-phone" href="tel:+5511945843491">+55 (11) 94584-3491</a>
+          </div>
+          <div class="business-card reveal">
+            <h3>FAMCORE HEVEA LTDA</h3>
+            <dl>
+              <div><dt>CNPJ</dt><dd>23.146.485/0001-21</dd></div>
+              <div><dt>Endereço</dt><dd><address>Rua Brigadeiro Faria Lima, 1140, Conj. 115<br />São Paulo/SP · CEP 01452-001</address></dd></div>
+              <div><dt>D-U-N-S</dt><dd>937043988</dd></div>
+            </dl>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer container">
-      <p>FAMCORE HEVEA LTDA · Tecnologia para heveicultura.</p>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="wordmark" href="#inicio">FAMCORE <span>HEVEA</span></a>
+          <p>Tecnologia desenvolvida por quem entende de heveicultura.</p>
+        </div>
+        <nav aria-label="Rodapé">
+          <a href="#produto">Produto</a>
+          <a href="#seguranca">Segurança</a>
+          <a href="#empresas">Para empresas</a>
+          <a href="#empresa">Empresa</a>
+          <a href="#contato">Contato</a>
+          <a href="/privacidade/">Privacidade</a>
+          <a href="https://github.com/FAMCORE-Hevea">GitHub</a>
+        </nav>
+      </div>
+      <p class="container legal">© <span data-year>2026</span> FAMCORE HEVEA LTDA · CNPJ 23.146.485/0001-21 · São Paulo/SP</p>
     </footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
