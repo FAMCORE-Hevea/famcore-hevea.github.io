@@ -56,6 +56,8 @@ h2 { margin: 0; font-size: clamp(36px, 5.6vw, 64px); font-weight: 700; line-heig
 /* Hero */
 .hero { position: relative; padding-top: clamp(72px, 11vw, 128px); overflow: hidden; text-align: center; }
 .hero-glow { position: absolute; inset: auto -20% 0; height: 70%; background: radial-gradient(50% 60% at 50% 100%, rgb(30 123 79 / .55), transparent 70%); pointer-events: none; }
+/* Brilho do início mais alto e intenso; o centro sobe dentro da área para não deixar borda reta */
+.hero > .hero-glow { height: 90%; background: radial-gradient(55% 45% at 50% 65%, rgb(30 123 79 / .75), transparent 70%); }
 .hero-glow-bottom { height: 90%; opacity: .7; }
 .hero-copy { position: relative; display: flex; flex-direction: column; align-items: center; }
 .pill { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 28px; padding: 6px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .14); background: rgb(255 255 255 / .04); font-size: 13px; color: rgb(238 242 236 / .8); }
@@ -64,16 +66,35 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .gradient-text { background: linear-gradient(100deg, var(--color-brand-light) 10%, #6fcf97 60%, #e6c79c); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lead { max-width: 640px; margin: 28px 0 0; font-size: clamp(17px, 1.7vw, 20px); line-height: 1.55; color: rgb(238 242 236 / .66); }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
-.hero-phones { position: relative; display: flex; justify-content: center; align-items: flex-start; gap: clamp(12px, 3vw, 40px); margin-top: clamp(56px, 8vw, 88px); height: clamp(360px, 52vw, 600px); overflow: hidden; }
+/* --tuck: espaço entre os celulares; fica negativo em telas menores e os laterais entram atrás do principal */
+.hero-phones { --tuck: clamp(-120px, (100vw - 1000px) / 3, 40px); position: relative; display: flex; justify-content: center; align-items: flex-start; gap: 0; margin-top: clamp(56px, 8vw, 88px); height: clamp(360px, 52vw, 600px); overflow: hidden; }
 .hero-phones .phone { flex: none; }
-.phone-main { width: clamp(220px, 27vw, 330px); }
-.phone-side { width: clamp(180px, 22vw, 270px); margin-top: clamp(60px, 9vw, 120px); opacity: .55; }
+/* Base dos celulares afunda no preto, emendando com o início escuro da seção seguinte */
+.hero::after { content: ""; position: absolute; inset: auto 0 0; z-index: 2; height: 70px; background: linear-gradient(180deg, transparent, var(--color-ink)); pointer-events: none; }
+.phone-main { position: relative; z-index: 1; width: clamp(220px, 27vw, 330px); }
+.phone-side { width: clamp(180px, 22vw, 270px); margin-top: clamp(80px, 14vw, 180px); opacity: .55; }
+.phone-side:first-child { margin-right: var(--tuck); }
+.phone-side:last-child { margin-left: var(--tuck); }
 
 /* Phone mockup */
-.phone { padding: 9px; border-radius: 52px; background: linear-gradient(145deg, #2b302c, #0b0d0c); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12), 0 40px 80px -20px rgb(0 0 0 / .55); }
-.screen { position: relative; aspect-ratio: 9 / 19.5; overflow: hidden; border-radius: 44px; background: #f5f8f6; padding-top: 11%; }
-.screen::before { content: ""; position: absolute; top: 2.6%; left: 50%; translate: -50%; width: 32%; height: 3.6%; border-radius: 999px; background: #0b0d0c; }
+/* Proporções do iPhone 16 Pro (tela 402x874pt): borda ~2,6% da largura, cantos e Dynamic Island proporcionais.
+   Raios em % (horizontal / vertical) para manter cantos circulares em qualquer largura. */
+.phone { container-type: inline-size; border-radius: 15.7% / 7.45%; background: #050605; box-shadow: 0 0 0 1.5px #3b3f3c, 0 0 0 3px #161817, 0 40px 80px -20px rgb(0 0 0 / .55); }
+/* margem em cqw = % da largura do próprio celular (padding em % usaria a largura do pai) */
+.screen { position: relative; margin: 2.6cqw; aspect-ratio: 402 / 874; overflow: hidden; border-radius: 13.7% / 6.3%; background: #f5f8f6; padding-top: 14cqw; }
+.screen::before { content: ""; position: absolute; z-index: 1; top: 1.3%; left: 50%; translate: -50%; width: 31%; height: 4.2%; border-radius: 999px; background: #000; }
 .screen img { display: block; width: 100%; height: auto; }
+
+/* Foto do campo com camada escura atrás do título e do carrossel */
+.product { background: linear-gradient(180deg, var(--color-ink), rgb(6 16 11 / .75) 140px, rgb(6 16 11 / .35) 300px, transparent 440px, transparent 75%, rgb(6 16 11 / .65)), linear-gradient(90deg, rgb(6 16 11 / .8), rgb(6 16 11 / .45) 50%, rgb(6 16 11 / .08)), linear-gradient(rgb(6 16 11 / .22), rgb(6 16 11 / .22)), url("/images/tractor.webp") 30% 30% / cover; }
+/* Cards brancos mantêm as cores de texto originais dentro da seção escura */
+/* Vidro fosco: o trator aparece através do card; o celular dentro dele continua sólido */
+.product .bento > .tile { color: var(--color-foreground); background: rgb(255 255 255 / .72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.product .tile .eyebrow { color: var(--color-brand); }
+.product .carousel-dots button { background: rgb(255 255 255 / .3); }
+.product .carousel-dots button[aria-current="true"] { background: var(--color-brand-light); }
+.product .carousel-arrows button { background: rgb(255 255 255 / .12); color: white; }
+.product .carousel-arrows button:hover:not(:disabled) { background: rgb(255 255 255 / .22); }
 
 /* Bento */
 /* Carrossel que sangra até a borda da tela, alinhado ao container no início */
@@ -96,6 +117,8 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .phone-peek { flex: none; width: min(300px, 70%); margin: 32px auto -180px; box-shadow: 0 30px 60px -20px rgb(6 16 11 / .35); }
 .tile:nth-child(2), .tile:nth-child(3) { background: linear-gradient(180deg, #e9f2ea, white 60%); }
 
+.features-section { padding-block: clamp(40px, 5vw, 64px); }
+.features-section .features { margin-top: 0; }
 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0 0; padding: 0; list-style: none; }
 .feature { padding: 28px; border-radius: 24px; background: white; box-shadow: 0 1px 0 var(--color-line), 0 0 0 1px rgb(0 0 0 / .03); }
 .feature svg { width: 28px; height: 28px; fill: none; stroke: var(--color-brand); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -220,16 +243,15 @@ address { font-style: normal; }
   .container { width: calc(100% - 32px); }
   .nav-links { display: none; }
   .header-inner { justify-content: space-between; }
-  .phone-side { display: none; }
   .phone-main { width: min(280px, 74vw); }
   .hero-phones { height: 440px; }
   .features, .offer-grid { grid-template-columns: 1fr; }
+  /* celular: texto ocupa toda a largura, então a camada escura é uniforme */
+  .product { background: linear-gradient(180deg, var(--color-ink), rgb(6 16 11 / .75) 140px, rgb(6 16 11 / .5) 320px, rgb(6 16 11 / .45) 60%, rgb(6 16 11 / .7)), linear-gradient(rgb(6 16 11 / .22), rgb(6 16 11 / .22)), url("/images/tractor.webp") 58% 12% / cover; }
   .bento { --bleed: 16px; gap: 12px; }
   .bento > .tile { flex-basis: 80vw; }
   .tile-phone { height: 560px; }
   .tile-copy { padding: 32px 28px 0; }
   .phone-peek { width: min(230px, 66%); margin-top: 24px; margin-bottom: -400px; }
-  .phone { border-radius: 44px; }
-  .screen { border-radius: 36px; }
   .business-card { padding: 28px; }
 }
