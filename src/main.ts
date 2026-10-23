@@ -175,8 +175,9 @@ const scrolled = () => pinTop - above - scroller!.getBoundingClientRect().top
 const followScroll = () => {
   if (!measured && narrow.matches && !calm.matches) layoutPin()
   if (!scroller?.classList.contains('is-pinned')) return
-  if (fold) setFold(1 - Math.min(1, Math.max(0, scrolled() / fold)))
-  const progress = Math.min(1, Math.max(0, (scrolled() - fold) / travel))
+  const done = scrolled()
+  if (fold) setFold(1 - Math.min(1, Math.max(0, done / fold)))
+  const progress = Math.min(1, Math.max(0, (done - fold) / travel))
   const index = Math.min(stageTabs.length - 1, Math.floor(progress * stageTabs.length))
   if (index !== activeIndex()) selectStage(stageTabs[index])
 }
@@ -187,9 +188,21 @@ stageTabs.forEach((tab, i) => tab.addEventListener('click', () => {
   selectStage(tab)
 }))
 if (scroller) {
+  let width = innerWidth
+  let queued = false
   layoutPin()
-  addEventListener('resize', () => { layoutPin(); followScroll() })
-  addEventListener('scroll', followScroll, { passive: true })
+  // a barra do navegador do celular aparece/some ao rolar e muda só a altura: refazer o cálculo aí faria a seção pular
+  addEventListener('resize', () => {
+    if (innerWidth === width) return
+    width = innerWidth
+    layoutPin()
+    followScroll()
+  })
+  addEventListener('scroll', () => {
+    if (queued) return
+    queued = true
+    requestAnimationFrame(() => { queued = false; followScroll() })
+  }, { passive: true })
   document.fonts?.ready.then(layoutPin)
   addEventListener('load', () => { layoutPin(); followScroll() })
 }

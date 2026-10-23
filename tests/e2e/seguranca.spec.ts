@@ -24,13 +24,13 @@ async function abrir(page: Page) {
     document.documentElement.style.scrollBehavior = 'auto'
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'))
     await document.fonts.ready
-    dispatchEvent(new Event('resize'))
+    dispatchEvent(new Event('load'))
   })
 }
 
 // Rola a página pela seção, de 40 em 40 px, e registra o estado em cada ponto
 function percorrer(page: Page): Promise<Amostra[]> {
-  return page.evaluate(() => {
+  return page.evaluate(async () => {
     const q = <T extends Element>(s: string) => document.querySelector<T>(s)!
     const scroller = q<HTMLElement>('.stage-scroller')
     const pin = q<HTMLElement>('.stage-pin')
@@ -39,7 +39,8 @@ function percorrer(page: Page): Promise<Amostra[]> {
     const amostras = []
     for (let y = inicio; y < fim; y += 40) {
       scrollTo(0, y)
-      dispatchEvent(new Event('scroll'))
+      await new Promise(requestAnimationFrame)
+      await new Promise(requestAnimationFrame)
       const box = (s: string) => q(s).getBoundingClientRect()
       const opacidade = (s: string) => Number(getComputedStyle(q(s)).opacity)
       amostras.push({
@@ -104,8 +105,18 @@ for (const { tela, preso } of niveis) {
   })
 }
 
-test.describe('celular 390×750: toque no diagrama', () => {
+test.describe('celular 390×750: toque no diagrama e barra do navegador', () => {
   test.use({ viewport: { width: 390, height: 750 }, isMobile: true, hasTouch: true })
+
+  test('a barra do navegador aparecer/sumir não refaz a seção no meio da rolagem', async ({ page }) => {
+    await abrir(page)
+    const altura = () => page.locator('.stage-scroller').evaluate((el) => el.style.height)
+    const antes = await altura()
+    await page.setViewportSize({ width: 390, height: 690 })
+    await page.setViewportSize({ width: 390, height: 750 })
+    await page.setViewportSize({ width: 390, height: 700 })
+    expect(await altura()).toBe(antes)
+  })
 
   test('tocar numa etapa rola até ela', async ({ page }) => {
     await abrir(page)
