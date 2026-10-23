@@ -67,3 +67,22 @@ if (carousel) {
   addEventListener('resize', update)
   update()
 }
+
+// Parallax da foto do campo: desce mais devagar que a página e desliza com o carrossel
+const product = document.querySelector<HTMLElement>('.product')
+if (product && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let queued = false
+  const move = () => {
+    queued = false
+    const box = product.getBoundingClientRect()
+    const progress = (box.top + box.height / 2 - innerHeight / 2) / innerHeight
+    product.style.setProperty('--py', `${(progress * -60).toFixed(1)}px`)
+    const max = carousel ? carousel.scrollWidth - carousel.clientWidth : 0
+    product.style.setProperty('--px', `${(max > 0 ? (carousel!.scrollLeft / max) * -40 : 0).toFixed(1)}px`)
+  }
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(move) } }
+  addEventListener('scroll', queue, { passive: true })
+  addEventListener('resize', queue)
+  carousel?.addEventListener('scroll', queue, { passive: true })
+  move()
+}
