@@ -89,8 +89,9 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .product { background: linear-gradient(180deg, var(--color-ink), rgb(6 16 11 / .75) 140px, rgb(6 16 11 / .35) 300px, transparent 440px, transparent 75%, rgb(6 16 11 / .65)), linear-gradient(90deg, rgb(6 16 11 / .8), rgb(6 16 11 / .45) 50%, rgb(6 16 11 / .08)), linear-gradient(rgb(6 16 11 / .22), rgb(6 16 11 / .22)), url("/images/tractor.webp") 30% 30% / cover; }
 /* Cards brancos mantêm as cores de texto originais dentro da seção escura */
 /* Vidro fosco: o trator aparece através do card; o celular dentro dele continua sólido */
-.product .bento > .tile { color: var(--color-foreground); background: rgb(255 255 255 / .72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
-.product .tile .eyebrow { color: var(--color-brand); }
+.product .bento > .tile { color: #eef2ec; background: rgb(6 16 11 / .55); border: 1px solid rgb(255 255 255 / .14); box-shadow: none; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.product .bento > .tile p:not(.eyebrow) { color: rgb(238 242 236 / .72); }
+.product .tile .eyebrow { color: var(--color-brand-light); }
 .product .carousel-dots button { background: rgb(255 255 255 / .3); }
 .product .carousel-dots button[aria-current="true"] { background: var(--color-brand-light); }
 .product .carousel-arrows button { background: rgb(255 255 255 / .12); color: white; }
