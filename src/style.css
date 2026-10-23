@@ -202,7 +202,7 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 
 /* Empresa */
 /* Foto do seringal ao fundo, mais escura à esquerda (título); a base se dissolve no escuro do contato */
-.company { padding-block: clamp(96px, 12vw, 160px) clamp(160px, 18vw, 240px); background: linear-gradient(180deg, transparent 45%, rgb(6 16 11 / .7) 80%, var(--color-ink)), linear-gradient(90deg, rgb(6 16 11 / .78), rgb(6 16 11 / .72) 55%, rgb(6 16 11 / .68)), linear-gradient(rgb(6 16 11 / .2), rgb(6 16 11 / .2)), url("/images/rubber-plantation.webp") 50% 62% / cover; }
+.company { padding-block: clamp(96px, 12vw, 160px) clamp(160px, 18vw, 240px); background: linear-gradient(180deg, transparent 45%, rgb(6 16 11 / .7) 80%, var(--color-ink)), linear-gradient(90deg, rgb(6 16 11 / .78), rgb(6 16 11 / .72) 55%, rgb(6 16 11 / .68)), linear-gradient(rgb(6 16 11 / .2), rgb(6 16 11 / .2)), url("/images/rubber-plantation.webp") 50% 35% / cover; }
 .company-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 .company h2 { font-size: clamp(32px, 4.4vw, 52px); }
 .company-copy p { margin: 0 0 20px; font-size: 18px; line-height: 1.75; color: rgb(238 242 236 / .82); }
