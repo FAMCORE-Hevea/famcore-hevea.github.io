@@ -151,10 +151,9 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .traffic i { width: 10px; height: 10px; border-radius: 50%; background: rgb(255 255 255 / .16); }
 .code-card pre { margin: 0; padding: 22px; overflow-x: auto; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.75; }
 .t-k { color: #9fd3b4; } .t-s { color: #e6c79c; } .t-p { color: rgb(238 242 236 / .45); }
-.offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+.offer-grid { display: grid; gap: 16px; margin-top: 56px; }
 /* Par contrastante: opção principal escura, sob medida clara com borda */
-.offer { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(28px, 4vw, 40px); border-radius: 28px; background: radial-gradient(60% 50% at 100% 0%, rgb(30 123 79 / .08), transparent 70%), white; border: 1px solid var(--color-line); box-shadow: 0 1px 2px rgb(6 16 11 / .04); transition: transform .3s, box-shadow .3s; }
-.offer:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -30px rgb(6 16 11 / .35); }
+.offer { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(28px, 4vw, 40px); border-radius: 28px; background: radial-gradient(60% 50% at 100% 0%, rgb(30 123 79 / .08), transparent 70%), white; border: 1px solid var(--color-line); box-shadow: 0 1px 2px rgb(6 16 11 / .04); }
 .offer-top { display: flex; align-items: center; justify-content: space-between; align-self: stretch; margin-bottom: 24px; }
 .offer-top > svg { margin-bottom: 0 !important; }
 .offer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .16); background: rgb(255 255 255 / .06); font-size: 12.5px; font-weight: 600; color: rgb(238 242 236 / .85); }
@@ -163,10 +162,31 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .offer-list li::before { content: "✓"; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: #e6f1e9; color: var(--color-brand); font-size: 11px; font-weight: 700; }
 .offer-primary .offer-list li::before { background: rgb(74 222 128 / .16); color: #6ee7a0; }
 .offer > svg, .offer-top > svg { width: 48px; height: 48px; margin-bottom: 24px; padding: 12px; border-radius: 14px; background: #e6f1e9; fill: none; stroke: var(--color-brand); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.offer-primary:hover { box-shadow: 0 40px 80px -30px rgb(6 16 11 / .7); }
 .offer-primary { position: relative; overflow: hidden; border-color: transparent; color: #eef2ec; background: radial-gradient(70% 90% at 100% 0%, rgb(30 123 79 / .45), transparent 70%), var(--color-ink); box-shadow: 0 30px 60px -30px rgb(6 16 11 / .6); }
 .offer-primary svg { background: rgb(200 219 165 / .14); stroke: var(--color-brand-light); }
 .offer-primary p { color: rgb(238 242 236 / .7) !important; }
+.offer-primary > p, .offer-primary .offer-list { max-width: 48cqi; } /* o resto da largura é dos ícones */
+.offer-primary .button { margin-top: 32px; }
+/* sob medida: rodapé do card, leva ao contato */
+.offer-custom { position: relative; align-self: stretch; display: flex; align-items: center; gap: 16px; margin-top: 36px; padding-top: 24px; color: rgb(238 242 236 / .65); font-size: 15px; line-height: 1.5; text-decoration: none; }
+/* linha atrás dos ícones (z-index abaixo do deles): quando um ícone passa por ela, fica na frente em vez de ser cortado */
+.offer-custom::before { content: ""; position: absolute; z-index: -2; inset: 0 0 auto; height: 1px; background: rgb(255 255 255 / .1); }
+.offer-custom strong { color: #eef2ec; }
+.offer-custom > svg { flex: none; width: 40px; height: 40px; padding: 10px; border-radius: 12px; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.offer-custom-link { margin-left: auto; flex: none; font-weight: 600; color: var(--color-brand-light); }
+.offer-custom:hover .offer-custom-link { color: white; }
+/* ícones de apps de empresas fictícias, como numa loja: mostram a personalização sem pesar */
+.offer-primary { isolation: isolate; }
+/* coluna dos ícones à direita; o grupo é uma composição fixa (unidade --u) que só muda de escala e fica centrada na altura do card */
+.offer-apps { --u: .52cqi; --cy: calc(40% - 38 * var(--u)); position: absolute; z-index: -1; inset: 0 0 0 auto; width: 52cqi; pointer-events: none; }
+.app-icon { position: absolute; width: var(--s); height: var(--s); border-radius: 23%; overflow: hidden; background: linear-gradient(160deg, color-mix(in srgb, var(--app) 82%, white), var(--app) 50%, color-mix(in srgb, var(--app) 85%, black)); box-shadow: inset 0 1px 0 rgb(255 255 255 / .35), 0 4px 10px rgb(0 0 0 / .55), 0 14px 28px -4px rgb(0 0 0 / .65), 0 32px 60px -12px rgb(0 0 0 / .7); }
+.offer-primary .app-icon svg { display: block; width: 100%; height: 100%; padding: 0; border-radius: 0; background: none; fill: white; stroke: none; }
+/* jogados e encavalados; os de trás mais escuros (opacos: um não aparece através do outro) */
+.app-icon:nth-child(1) { --s: calc(30 * var(--u)); left: calc(18 * var(--u)); top: calc(var(--cy) + 6 * var(--u)); rotate: -14deg; filter: brightness(.78); }
+.app-icon:nth-child(2) { --s: calc(26 * var(--u)); left: calc(18 * var(--u)); top: calc(var(--cy) + 50 * var(--u)); rotate: 14deg; filter: brightness(.72); }
+.app-icon:nth-child(3) { --s: calc(30 * var(--u)); left: calc(40 * var(--u)); top: calc(var(--cy) + 30 * var(--u)); rotate: 9deg; z-index: 2; filter: brightness(.92); }
+.app-icon:nth-child(4) { --s: calc(38 * var(--u)); left: calc(62 * var(--u)); top: calc(var(--cy) + 14 * var(--u)); rotate: -8deg; z-index: 3; }
+.app-icon:nth-child(5) { --s: calc(25 * var(--u)); left: calc(52 * var(--u)); top: calc(var(--cy) + 52 * var(--u)); rotate: -6deg; z-index: 1; filter: brightness(.85); }
 .offer h3 { margin: 0 0 10px; font-size: 24px; font-weight: 700; letter-spacing: -.02em; }
 .offer p { margin: 0; line-height: 1.6; color: var(--color-foreground-muted); }
 
@@ -256,6 +276,39 @@ address { font-style: normal; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
+/* regras pela largura do card, não da tela */
+.offer-primary { container-type: inline-size; }
+@container (min-width: 1000px) {
+  .offer-primary .offer-list { grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  /* card largo: o texto ganha mais espaço (lista em duas colunas); a folha sai pela borda */
+  .offer-primary > p, .offer-primary .offer-list { max-width: 58cqi; }
+  .offer-apps { --u: .47cqi; --cy: calc(42% - 38 * var(--u)); width: 44cqi; }
+}
+/* card médio: o card fica mais alto que largo; a mesma composição, mais espalhada */
+@container (max-width: 1000px) {
+  .offer-apps { --cy: calc(42% - 37 * var(--u)); }
+  .app-icon:nth-child(1) { left: calc(8 * var(--u)); top: calc(var(--cy) - 9 * var(--u)); }
+  .app-icon:nth-child(2) { left: calc(6 * var(--u)); top: calc(var(--cy) + 55 * var(--u)); }
+  .app-icon:nth-child(3) { left: calc(37 * var(--u)); top: calc(var(--cy) + 25 * var(--u)); }
+  .app-icon:nth-child(4) { left: calc(64 * var(--u)); top: calc(var(--cy) + 2 * var(--u)); }
+  .app-icon:nth-child(5) { left: calc(52 * var(--u)); top: calc(var(--cy) + 57 * var(--u)); }
+}
+/* card estreito (celular): sem espaço ao lado do texto; os ícones se espalham por uma faixa no topo, entre o selo e o título */
+@container (max-width: 560px) {
+  .offer-top { margin-bottom: calc(60 * min(1cqi, 4.6px) + 24px); }
+  .offer-primary > p, .offer-primary .offer-list { max-width: none; }
+  /* tamanhos em --u (com teto); posições horizontais em % para espalhar pela largura toda do card */
+  .offer-apps { --u: min(1cqi, 4.6px); inset: 92px 0 auto; width: auto; } /* abaixo do selo */
+  .app-icon:nth-child(1) { --s: calc(30 * var(--u)); left: -3%; top: calc(8 * var(--u)); }
+  .app-icon:nth-child(2) { --s: calc(26 * var(--u)); left: 17%; top: calc(30 * var(--u)); rotate: 12deg; }
+  .app-icon:nth-child(3) { --s: calc(32 * var(--u)); left: 35%; top: calc(4 * var(--u)); }
+  .app-icon:nth-child(4) { --s: calc(38 * var(--u)); left: 70%; top: calc(-2 * var(--u)); }
+  .app-icon:nth-child(5) { --s: calc(26 * var(--u)); left: 56%; top: calc(30 * var(--u)); }
+}
+/* celular estreito: o botão cabe numa linha */
+@container (max-width: 300px) {
+  .offer-primary .button { padding-inline: 18px; }
+}
 @media (max-width: 960px) {
   .split, .company-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   .provider-grid { grid-template-columns: 1fr; }
@@ -299,6 +352,10 @@ address { font-style: normal; }
 @media (max-width: 720px) {
   .container { width: calc(100% - 32px); }
   .nav-links { display: none; }
+  .offer-custom { flex-wrap: wrap; align-items: flex-start; }
+
+  .offer-custom > span:first-of-type { flex: 1 1 200px; }
+  .offer-custom-link { margin-left: 56px; }
   .header-inner { justify-content: space-between; }
   .phone-main { width: min(280px, 74vw); }
   .hero-phones { height: 440px; }
