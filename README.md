@@ -128,6 +128,15 @@ npm run build
 npm run preview
 ```
 
+### Testes de navegador
+
+Testes com Playwright em `tests/e2e/`, para rodar localmente antes de publicar mudanças visuais (não rodam no deploy). Cobrem a rolagem fixada da seção de segurança em vários tamanhos de celular, o modo empilhado e o computador.
+
+```bash
+npx playwright install chromium   # só na primeira vez
+npm run test:e2e
+```
+
 Preferir um site estático, sem dependência de backend para exibir conteúdo. Utilizar estruturas reutilizáveis, HTML semântico, acessibilidade e boa performance. Evitar dependências desnecessárias.
 
 ## 5. SEO

@@ -173,32 +173,69 @@
       <section class="section dark security" id="seguranca" aria-labelledby="seguranca-titulo">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="container">
-          <header class="section-head section-head-center reveal">
-            <svg class="shield" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z" /><path d="M8.5 12l2.5 2.5 4.5-5" /></svg>
-            <p class="eyebrow">Segurança e privacidade</p>
-            <h2 id="seguranca-titulo">Protegido do início ao&nbsp;fim.</h2>
-            <p class="section-lead">Produção e pagamentos são informações sensíveis. Por isso, cada etapa do caminho dos dados, do sistema da empresa ao celular do fornecedor, tem sua própria camada de proteção.</p>
-          </header>
+          <div class="stage-scroller">
+            <div class="stage-pin">
+              <header class="section-head section-head-center reveal">
+                <svg class="shield" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z" /><path d="M8.5 12l2.5 2.5 4.5-5" /></svg>
+                <p class="eyebrow">Segurança e privacidade</p>
+                <h2 id="seguranca-titulo">Protegido do início ao&nbsp;fim.</h2>
+                <p class="section-lead">Produção e pagamentos são informações sensíveis. Por isso, cada etapa do caminho dos dados, do sistema da empresa ao celular do fornecedor, tem sua própria camada de proteção.</p>
+              </header>
+              <div class="stage-tabs" role="tablist" aria-label="Etapas do caminho dos dados">
+                <button type="button" role="tab" id="etapa-empresa-tab" aria-controls="etapa-empresa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg><span>Sistema da empresa</span></button>
+                <span class="tab-link" aria-hidden="true"><span>Cópia criptografada</span></span>
+                <button type="button" role="tab" id="etapa-nuvem-tab" aria-controls="etapa-nuvem"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg><span>Nuvem FAMCORE</span></button>
+                <span class="tab-link" aria-hidden="true"><span>HTTPS</span></span>
+                <button type="button" role="tab" id="etapa-app-tab" aria-controls="etapa-app"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg><span>App do fornecedor</span></button>
+              </div>
+              <div class="stages" aria-label="Caminho dos dados">
+                <article class="stage reveal" id="etapa-empresa" role="tabpanel" aria-labelledby="etapa-empresa-tab">
+                  <header class="stage-head">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg>
+                    <h3>Sistema da empresa</h3>
+                    <p>Apenas envia cópias. Nenhum acesso externo à rede da empresa.</p>
+                  </header>
+              <ul class="checks">
+                        <li>O sistema local só envia cópias de segurança; nenhuma porta é aberta na rede da empresa.</li>
+                        <li>A empresa envia seus dados com uma credencial exclusiva, para um espaço isolado.</li>
+                        <li>Cópias guardadas com criptografia e versionamento, aceitas apenas por conexão segura.</li>
+                        <li>O app só consulta: nenhum registro de produção ou pagamento é alterado.</li>
+                      </ul>
+                </article>
+                <div class="stage-link" aria-hidden="true"><span>Cópia criptografada</span></div>
+                <article class="stage reveal" id="etapa-nuvem" role="tabpanel" aria-labelledby="etapa-nuvem-tab">
+                  <header class="stage-head">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg>
+                    <h3>Nuvem FAMCORE</h3>
+                    <p>Na AWS, protegida pela Cloudflare, com réplica própria e isolada.</p>
+                  </header>
+              <ul class="checks">
+                        <li>Os dados da empresa ficam em uma réplica própria e isolada.</li>
+                        <li>HTTPS obrigatório, com certificado validado de ponta a ponta.</li>
+                        <li>Servidores com disco criptografado e sem portas de acesso remoto abertas.</li>
+                        <li>Sem chaves de acesso fixas: publicações com identidade temporária e permissões mínimas.</li>
+                        <li>Notas fiscais em armazenamento privado, com acesso que expira em dez minutos.</li>
+                      </ul>
+                </article>
+                <div class="stage-link" aria-hidden="true"><span>HTTPS</span></div>
+                <article class="stage reveal" id="etapa-app" role="tabpanel" aria-labelledby="etapa-app-tab">
+                  <header class="stage-head">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg>
+                    <h3>App do fornecedor</h3>
+                    <p>Cada fornecedor vê apenas os próprios dados.</p>
+                  </header>
+              <ul class="checks">
+                        <li>Login liberado somente após a confirmação do e-mail.</li>
+                        <li>Senhas guardadas de forma irreversível e limite de tentativas contra acessos indevidos.</li>
+                        <li>A sessão do fornecedor permite apenas consultar dados, nunca alterá-los.</li>
+                        <li>Dados vinculados ao CPF: nenhum fornecedor vê a produção ou os pagamentos de outro.</li>
+                        <li>No celular, nenhuma senha fica salva, só um código de sessão em área protegida, apagado ao sair.</li>
+                      </ul>
+                </article>
+              </div>
+            </div>
+          </div>
 
-          <ol class="flow reveal" aria-label="Caminho dos dados">
-            <li class="flow-node">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg>
-              <strong>Sistema da empresa</strong>
-              <span>Apenas envia cópias. Nenhum acesso externo à rede da empresa.</span>
-            </li>
-            <li class="flow-link" aria-hidden="true"><span>Cópia criptografada</span></li>
-            <li class="flow-node">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg>
-              <strong>Nuvem FAMCORE</strong>
-              <span>Na AWS, protegida pela Cloudflare, com réplica própria e isolada.</span>
-            </li>
-            <li class="flow-link" aria-hidden="true"><span>HTTPS</span></li>
-            <li class="flow-node">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg>
-              <strong>App do fornecedor</strong>
-              <span>Cada fornecedor vê apenas os próprios dados.</span>
-            </li>
-          </ol>
 
           <div class="providers reveal">
             <p class="eyebrow">Infraestrutura</p>
@@ -217,41 +254,6 @@
               </article>
             </div>
             <p class="providers-note">Certificações de segurança da AWS e da Cloudflare, provedores de infraestrutura utilizados pela FAMCORE.</p>
-          </div>
-
-          <div class="layers">
-            <article class="layer reveal">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" /><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2" /></svg>
-              <h3>Na empresa</h3>
-              <ul class="checks">
-                <li>O sistema local só envia cópias de segurança; nenhuma porta é aberta na rede da empresa.</li>
-                <li>A empresa envia seus dados com uma credencial exclusiva, para um espaço isolado.</li>
-                <li>Cópias guardadas com criptografia e versionamento, aceitas apenas por conexão segura.</li>
-                <li>O app só consulta: nenhum registro de produção ou pagamento é alterado.</li>
-              </ul>
-            </article>
-            <article class="layer reveal">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 8z" /><path d="M10 13.5l1.5 1.5 3-3" /></svg>
-              <h3>Na nuvem</h3>
-              <ul class="checks">
-                <li>Os dados da empresa ficam em uma réplica própria e isolada.</li>
-                <li>HTTPS obrigatório, com certificado validado de ponta a ponta.</li>
-                <li>Servidores com disco criptografado e sem portas de acesso remoto abertas.</li>
-                <li>Sem chaves de acesso fixas: publicações com identidade temporária e permissões mínimas.</li>
-                <li>Notas fiscais em armazenamento privado, com acesso que expira em dez minutos.</li>
-              </ul>
-            </article>
-            <article class="layer reveal">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></svg>
-              <h3>No app</h3>
-              <ul class="checks">
-                <li>Login liberado somente após a confirmação do e-mail.</li>
-                <li>Senhas guardadas de forma irreversível e limite de tentativas contra acessos indevidos.</li>
-                <li>A sessão do fornecedor permite apenas consultar dados, nunca alterá-los.</li>
-                <li>Dados vinculados ao CPF: nenhum fornecedor vê a produção ou os pagamentos de outro.</li>
-                <li>No celular, nenhuma senha fica salva, só um código de sessão em área protegida, apagado ao sair.</li>
-              </ul>
-            </article>
           </div>
 
           <ul class="pledges reveal" aria-label="Compromissos de privacidade">

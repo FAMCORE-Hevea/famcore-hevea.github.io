@@ -86,3 +86,110 @@ if (product && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   carousel?.addEventListener('scroll', queue, { passive: true })
   move()
 }
+
+// Abas das etapas de segurança (visíveis só no celular; no computador todas as etapas aparecem)
+const stageTabs = [...document.querySelectorAll<HTMLButtonElement>('.stage-tabs [role="tab"]')]
+const selectStage = (tab: HTMLButtonElement) => {
+  stageTabs.forEach((t) => {
+    const active = t === tab
+    t.setAttribute('aria-selected', String(active))
+    t.tabIndex = active ? 0 : -1
+    document.getElementById(t.getAttribute('aria-controls') ?? '')?.classList.toggle('is-active', active)
+  })
+}
+if (stageTabs[0]) selectStage(stageTabs[0])
+
+// Celular/tablet: prende cabeçalho, diagrama e card na tela e troca a etapa conforme a rolagem (como nas páginas da Apple)
+const scroller = document.querySelector<HTMLElement>('.stage-scroller')
+const pin = scroller?.querySelector<HTMLElement>('.stage-pin')
+const stages = scroller?.querySelector<HTMLElement>('.stages')
+const title = scroller?.querySelector<HTMLElement>('h2')
+const lead = scroller?.querySelector<HTMLElement>('.section-lead')
+const eyebrow = scroller?.querySelector<HTMLElement>('.eyebrow')
+const shield = scroller?.querySelector<SVGElement>('.shield')
+const tabList = scroller?.querySelector<HTMLElement>('.stage-tabs')
+const pinTop = 76
+const narrow = matchMedia('(max-width: 960px)')
+const calm = matchMedia('(prefers-reduced-motion: reduce)')
+let above = 0 // o que fica acima do ponto de fixação sai por baixo do menu
+let fading: (HTMLElement | SVGElement)[] = [] // ficam numa faixa ainda visível abaixo do menu: esmaecem junto com o recolhimento
+let folding: { el: HTMLElement, height: number, margin: number }[] = [] // recolhem com a rolagem
+let fold = 0 // rolagem usada para recolher título/texto antes de começar a trocar as etapas
+let travel = 0
+let measured = false
+const activeIndex = () => Math.max(0, stageTabs.findIndex((t) => t.getAttribute('aria-selected') === 'true'))
+const setFold = (shown: number) => {
+  const opacity = shown < 1 ? String(Math.max(0, shown * 2 - 1)) : ''
+  for (const { el, height, margin } of folding) {
+    el.style.height = shown < 1 ? `${height * shown}px` : ''
+    el.style.marginTop = shown < 1 ? `${margin * shown}px` : ''
+    el.style.opacity = opacity
+    el.style.overflow = shown < 1 ? 'hidden' : ''
+  }
+  for (const el of fading) el.style.opacity = opacity
+}
+const layoutPin = () => {
+  if (!scroller || !pin || !stages || !title || !lead || !eyebrow || !shield || !tabList) return
+  setFold(1)
+  scroller.classList.remove('is-pinned')
+  scroller.style.height = ''
+  pin.style.top = ''
+  stages.style.minHeight = ''
+  if (!narrow.matches || calm.matches) return
+  // mede já no modo fixado (cards compactos)
+  scroller.classList.add('is-pinned')
+  const current = activeIndex()
+  const tallest = Math.max(...stageTabs.map((t) => { selectStage(t); return stages.offsetHeight }))
+  selectStage(stageTabs[current])
+  const titleFold = { el: title, height: title.offsetHeight, margin: 14 }
+  const leadFold = { el: lead, height: lead.offsetHeight, margin: 22 }
+  // fixa a partir do primeiro nível que couber, da tela mais alta para a mais baixa (ex.: iPhone SE)
+  const levels = [
+    { start: pin, fold: [leadFold] }, // escudo, rótulo e título
+    { start: title, fold: [leadFold], fade: [eyebrow] }, // só o título
+    { start: eyebrow, fold: [titleFold, leadFold], fade: [shield] }, // só o rótulo
+    { start: tabList, fold: [] }, // só diagrama e card
+  ]
+  let shown = 0
+  for (const level of levels) {
+    above = level.start === pin ? 0 : level.start.offsetTop - 8 // relativo ao pin (sticky = posicionado); offsetTop ignora a animação de entrada
+    folding = level.fold
+    fold = folding.reduce((sum, f) => sum + f.height + f.margin, 0)
+    fading = level.fade ?? []
+    shown = pin.offsetHeight - above - fold - stages.offsetHeight + tallest
+    if (shown + pinTop + 16 <= innerHeight) break
+  }
+  // medição antes do layout final (só o diagrama, sem card): refeita na próxima rolagem
+  measured = tallest >= 200
+  // só fixa se a etapa mais alta couber inteira na tela; senão fica a troca por toque
+  if (!measured || shown + pinTop + 16 > innerHeight) {
+    scroller.classList.remove('is-pinned')
+    return
+  }
+  travel = innerHeight * 0.6 * (stageTabs.length - 1)
+  pin.style.top = `${pinTop - above}px`
+  stages.style.minHeight = `${tallest}px`
+  scroller.style.height = `${above + shown + fold + travel}px`
+}
+const scrolled = () => pinTop - above - scroller!.getBoundingClientRect().top
+const followScroll = () => {
+  if (!measured && narrow.matches && !calm.matches) layoutPin()
+  if (!scroller?.classList.contains('is-pinned')) return
+  if (fold) setFold(1 - Math.min(1, Math.max(0, scrolled() / fold)))
+  const progress = Math.min(1, Math.max(0, (scrolled() - fold) / travel))
+  const index = Math.min(stageTabs.length - 1, Math.floor(progress * stageTabs.length))
+  if (index !== activeIndex()) selectStage(stageTabs[index])
+}
+stageTabs.forEach((tab, i) => tab.addEventListener('click', () => {
+  if (scroller?.classList.contains('is-pinned')) {
+    scrollTo({ top: scrollY + fold + (travel * (i + 0.5)) / stageTabs.length - scrolled(), behavior: calm.matches ? 'auto' : 'smooth' })
+  }
+  selectStage(tab)
+}))
+if (scroller) {
+  layoutPin()
+  addEventListener('resize', () => { layoutPin(); followScroll() })
+  addEventListener('scroll', followScroll, { passive: true })
+  document.fonts?.ready.then(layoutPin)
+  addEventListener('load', () => { layoutPin(); followScroll() })
+}
