@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "og-image": "node scripts/generate-og-image.mjs"
   },
   "devDependencies": {
     "@tailwindcss/vite": "latest",

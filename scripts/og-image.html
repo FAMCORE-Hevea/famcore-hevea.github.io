@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Modelo da imagem de compartilhamento (1200x630). Gerar com: npm run og-image -->
+    <style>
+      * { box-sizing: border-box; margin: 0; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body { position: relative; background: #06100b; color: #eef2ec; font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .glow { position: absolute; inset: 0; background: radial-gradient(55% 75% at 78% 100%, rgb(30 123 79 / .6), transparent 70%), radial-gradient(40% 50% at 0% 0%, rgb(30 123 79 / .18), transparent 70%); }
+      .copy { position: absolute; left: 72px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+      .mark { position: absolute; left: 72px; top: 64px; font-weight: 800; font-size: 30px; letter-spacing: -.03em; }
+      .mark span { font-weight: 500; font-size: 15px; letter-spacing: .3em; margin-left: 8px; opacity: .7; }
+      h1 { font-size: 68px; line-height: 1.03; letter-spacing: -.045em; font-weight: 700; }
+      .g { background: linear-gradient(100deg, #c8dba5 10%, #6fcf97 60%, #e6c79c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .phone { position: absolute; right: 76px; top: 52px; width: 350px; padding: 9px; border-radius: 50px; background: linear-gradient(145deg, #2b302c, #0b0d0c); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12), 0 40px 80px -20px rgb(0 0 0 / .6); }
+      .screen { position: relative; height: 700px; overflow: hidden; border-radius: 46px; background: #f5f8f6; padding-top: 40px; }
+      .screen::before { content: ""; position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 110px; height: 28px; border-radius: 99px; background: #0b0d0c; }
+      .screen img { display: block; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div class="glow"></div>
+    <div class="mark">FAMCORE <span>HEVEA</span></div>
+    <div class="copy">
+      <h1>Tecnologia desenvolvida por quem entende de <span class="g">heveicultura.</span></h1>
+    </div>
+    <div class="phone"><div class="screen"><img src="../public/app/01-visao-geral.webp" alt="" /></div></div>
+  </body>
+</html>

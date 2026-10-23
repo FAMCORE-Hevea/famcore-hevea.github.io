@@ -207,3 +207,18 @@ O site não deve ser somente uma página “Em breve”, uma página vazia, a p�
 ## Entrega esperada
 
 Um **site institucional completo, público, acessível por HTTPS**, publicado com GitHub Pages e preferencialmente disponível em **https://famcore.com.br/**, apresentando a FAMCORE HEVEA LTDA, seus produtos, o FAMCORE Hevea App (conforme fatos comprovados) e os canais oficiais de contato.
+
+## Imagem de compartilhamento
+
+A prévia exibida em WhatsApp, LinkedIn e outras redes usa `public/og-image.jpg` (1200x630).
+A imagem é gerada a partir do modelo `scripts/og-image.html` com Chromium headless:
+
+```bash
+npm run og-image
+```
+
+O script procura o Chromium do sistema ou do cache do Playwright; use `CHROMIUM_PATH` para indicar
+outro executável. A imagem traz marca, slogan e a tela do app; o título e a descrição da prévia ficam
+nas tags `og:title` e `og:description` do `index.html` e não devem repetir o texto da imagem.
+O WhatsApp guarda prévias em cache: para conferir uma alteração, compartilhe a URL com um parâmetro,
+como `https://famcore.com.br/?v=3`.
