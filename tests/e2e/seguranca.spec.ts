@@ -64,11 +64,12 @@ function percorrer(page: Page): Promise<Amostra[]> {
 const presas = (amostras: Amostra[]) => amostras.filter((a) => Math.abs(a.pinTop - a.pinSticky) < 1)
 
 // Do mais completo ao mais enxuto: o que deve continuar visível enquanto a seção está presa
+// (o rodapé de progresso ocupa o fim da tela; em 360×640 ele não cabe e a seção prende sem ele)
 const niveis = [
   { tela: { width: 390, height: 844 }, preso: 'escudo' },
-  { tela: { width: 390, height: 750 }, preso: 'escudo' },
-  { tela: { width: 390, height: 664 }, preso: 'título' },
-  { tela: { width: 375, height: 667 }, preso: 'rótulo' },
+  { tela: { width: 390, height: 750 }, preso: 'título' },
+  { tela: { width: 390, height: 664 }, preso: 'rótulo' },
+  { tela: { width: 375, height: 667 }, preso: 'diagrama' },
   { tela: { width: 360, height: 640 }, preso: 'diagrama' },
 ] as const
 const descricao = { escudo: 'escudo, rótulo, título, diagrama e card', título: 'título, diagrama e card', rótulo: 'rótulo, diagrama e card', diagrama: 'só diagrama e card' }
@@ -125,6 +126,20 @@ test.describe('celular 390×750: toque no diagrama e barra do navegador', () => 
     await expect(page.getByRole('tab', { name: etapas[2] })).toHaveAttribute('aria-selected', 'true')
     await expect(page.locator('#etapa-app')).toBeVisible()
     await expect(page.locator('#etapa-empresa')).toBeHidden()
+  })
+
+  test('barra no rodapé mostra o progresso das etapas só enquanto a seção está presa', async ({ page }) => {
+    await abrir(page)
+    const rodape = page.locator('.stage-progress')
+    await expect(rodape).not.toHaveClass(/is-shown/)
+    await page.getByRole('tab', { name: etapas[1] }).click()
+    await expect(rodape).toHaveClass(/is-shown/)
+    const preenchido = () => rodape.evaluate((el) => Number(el.style.getPropertyValue('--p')))
+    expect(await preenchido()).toBeCloseTo(0.5, 1)
+    await page.getByRole('tab', { name: etapas[2] }).click()
+    expect(await preenchido()).toBeCloseTo(5 / 6, 1)
+    await page.locator('.providers').scrollIntoViewIfNeeded()
+    await expect(rodape).not.toHaveClass(/is-shown/)
   })
 })
 

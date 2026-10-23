@@ -108,6 +108,7 @@ const lead = scroller?.querySelector<HTMLElement>('.section-lead')
 const eyebrow = scroller?.querySelector<HTMLElement>('.eyebrow')
 const shield = scroller?.querySelector<SVGElement>('.shield')
 const tabList = scroller?.querySelector<HTMLElement>('.stage-tabs')
+const progressBox = scroller?.querySelector<HTMLElement>('.stage-progress')
 const pinTop = 76
 const narrow = matchMedia('(max-width: 960px)')
 const calm = matchMedia('(prefers-reduced-motion: reduce)')
@@ -141,6 +142,8 @@ const layoutPin = () => {
   const current = activeIndex()
   const tallest = Math.max(...stageTabs.map((t) => { selectStage(t); return stages.offsetHeight }))
   selectStage(stageTabs[current])
+  if (progressBox) progressBox.style.display = ''
+  let footer = (progressBox?.offsetHeight ?? 0) + 21 // o card não pode ficar por baixo do rodapé de progresso
   const titleFold = { el: title, height: title.offsetHeight, margin: 14 }
   const leadFold = { el: lead, height: lead.offsetHeight, margin: 22 }
   // fixa a partir do primeiro nível que couber, da tela mais alta para a mais baixa (ex.: iPhone SE)
@@ -151,18 +154,25 @@ const layoutPin = () => {
     { start: tabList, fold: [] }, // só diagrama e card
   ]
   let shown = 0
-  for (const level of levels) {
-    above = level.start === pin ? 0 : level.start.offsetTop - 8 // relativo ao pin (sticky = posicionado); offsetTop ignora a animação de entrada
-    folding = level.fold
-    fold = folding.reduce((sum, f) => sum + f.height + f.margin, 0)
-    fading = level.fade ?? []
-    shown = pin.offsetHeight - above - fold - stages.offsetHeight + tallest
-    if (shown + pinTop + 16 <= innerHeight) break
+  const fits = () => shown + pinTop + 16 + footer <= innerHeight
+  // telas baixas demais para o rodapé de progresso: fixa sem ele (o mini diagrama ainda indica a etapa)
+  for (const reserve of [footer, 0]) {
+    footer = reserve
+    for (const level of levels) {
+      above = level.start === pin ? 0 : level.start.offsetTop - 8 // relativo ao pin (sticky = posicionado); offsetTop ignora a animação de entrada
+      folding = level.fold
+      fold = folding.reduce((sum, f) => sum + f.height + f.margin, 0)
+      fading = level.fade ?? []
+      shown = pin.offsetHeight - above - fold - stages.offsetHeight + tallest
+      if (fits()) break
+    }
+    if (fits()) break
   }
+  if (progressBox && !footer) progressBox.style.display = 'none'
   // medição antes do layout final (só o diagrama, sem card): refeita na próxima rolagem
   measured = tallest >= 200
   // só fixa se a etapa mais alta couber inteira na tela; senão fica a troca por toque
-  if (!measured || shown + pinTop + 16 > innerHeight) {
+  if (!measured || !fits()) {
     scroller.classList.remove('is-pinned')
     return
   }
@@ -180,10 +190,13 @@ const followScroll = () => {
   const progress = Math.min(1, Math.max(0, (done - fold) / travel))
   const index = Math.min(stageTabs.length - 1, Math.floor(progress * stageTabs.length))
   if (index !== activeIndex()) selectStage(stageTabs[index])
+  progressBox?.classList.toggle('is-shown', done >= 0 && done < fold + travel)
+  progressBox?.style.setProperty('--p', String(progress))
 }
 stageTabs.forEach((tab, i) => tab.addEventListener('click', () => {
+  // salto instantâneo: a rolagem suave passava pelas etapas do meio e o card piscava a cada troca
   if (scroller?.classList.contains('is-pinned')) {
-    scrollTo({ top: scrollY + fold + (travel * (i + 0.5)) / stageTabs.length - scrolled(), behavior: calm.matches ? 'auto' : 'smooth' })
+    scrollTo({ top: scrollY + fold + (travel * (i + 0.5)) / stageTabs.length - scrolled(), behavior: 'instant' })
   }
   selectStage(tab)
 }))
