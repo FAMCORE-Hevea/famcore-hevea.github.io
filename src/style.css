@@ -215,7 +215,6 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .contact-phone { margin-top: 12px; font-size: 18px; color: rgb(238 242 236 / .8); }
 .contact-email:hover, .contact-phone:hover { text-decoration: underline; text-decoration-color: rgb(255 255 255 / .4); }
 .business-card { padding: 36px; border-radius: 24px; border: 1px solid rgb(255 255 255 / .12); background: rgb(255 255 255 / .04); backdrop-filter: blur(12px); }
-.business-card h3 { margin: 0 0 28px; font-size: 17px; font-weight: 700; letter-spacing: .02em; }
 dl { margin: 0; }
 dl > div + div { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgb(255 255 255 / .08); }
 dt { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgb(238 242 236 / .45); margin-bottom: 6px; }
