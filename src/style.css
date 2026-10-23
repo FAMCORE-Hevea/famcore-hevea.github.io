@@ -90,7 +90,7 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .product { background: linear-gradient(180deg, var(--color-ink), rgb(6 16 11 / .75) 140px, rgb(6 16 11 / .35) 300px, transparent 440px, transparent 75%, rgb(6 16 11 / .65)), linear-gradient(90deg, rgb(6 16 11 / .8), rgb(6 16 11 / .45) 50%, rgb(6 16 11 / .08)), linear-gradient(rgb(6 16 11 / .22), rgb(6 16 11 / .22)), url("/images/tractor.webp") 30% 30% / cover; }
 /* Cards brancos mantêm as cores de texto originais dentro da seção escura */
 /* Vidro fosco: o trator aparece através do card; o celular dentro dele continua sólido */
-.product .bento > .tile { color: #eef2ec; background: rgb(6 16 11 / .55); border: 1px solid rgb(255 255 255 / .14); box-shadow: none; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.product .bento > .tile { color: #eef2ec; background: radial-gradient(60% 40% at 50% 100%, rgb(30 123 79 / .4), transparent 70%), linear-gradient(180deg, rgb(255 255 255 / .07), rgb(255 255 255 / .01) 40%), rgb(6 16 11 / .55); border: 1px solid rgb(255 255 255 / .14); box-shadow: none; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
 .product .bento > .tile p:not(.eyebrow) { color: rgb(238 242 236 / .72); }
 .product .tile .eyebrow { color: var(--color-brand-light); }
 .product .carousel-dots button { background: rgb(255 255 255 / .3); }
@@ -116,7 +116,7 @@ h1 { max-width: 960px; margin: 0; font-size: clamp(42px, 7.4vw, 88px); font-weig
 .tile-copy { padding: 40px 40px 0; }
 .tile h3 { margin: 0; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.12; letter-spacing: -.03em; font-weight: 700; }
 .tile p:not(.eyebrow) { margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: var(--color-foreground-muted); }
-.phone-peek { flex: none; width: min(300px, 70%); margin: 32px auto -180px; box-shadow: 0 30px 60px -20px rgb(6 16 11 / .35); }
+.phone-peek { flex: none; width: min(300px, 70%); margin: 32px auto -180px; box-shadow: 0 0 0 1.5px #3b3f3c, 0 0 0 3px #161817, 0 30px 60px -20px rgb(6 16 11 / .35); }
 .tile:nth-child(2), .tile:nth-child(3) { background: linear-gradient(180deg, #e9f2ea, white 60%); }
 
 /* Recursos sem caixas, em colunas com divisórias, dentro da seção "Um só aplicativo" */

@@ -50,6 +50,16 @@ if (carousel) {
     if (atEnd) active = tiles.length - 1
     dots.forEach((d, i) => d.setAttribute('aria-current', String(i === active)))
   }
+  // Textos de tamanhos diferentes: iguala a altura do bloco de texto para os celulares ficarem alinhados
+  const copies = [...carousel.querySelectorAll<HTMLElement>('.tile-copy')]
+  const equalize = () => {
+    copies.forEach((c) => { c.style.minHeight = '' })
+    const tallest = Math.max(...copies.map((c) => c.offsetHeight))
+    copies.forEach((c) => { c.style.minHeight = `${tallest}px` })
+  }
+  equalize()
+  addEventListener('resize', equalize)
+  document.fonts?.ready.then(equalize)
   carousel.addEventListener('scroll', markActive, { passive: true })
   addEventListener('resize', markActive)
   markActive()
