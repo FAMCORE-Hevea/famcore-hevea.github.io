@@ -19,7 +19,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 body { margin: 0; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-underline-offset: .2em; }
 :focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; border-radius: 4px; }
-.container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+/* max-width: none anula os degraus do utilitário .container do Tailwind, que estreitavam o conteúdo em telas médias */
+.container { width: min(1180px, calc(100% - 48px)); max-width: none; margin-inline: auto; }
 .skip-link { position: absolute; top: -100px; left: 24px; z-index: 20; background: white; color: black; padding: 12px; }
 .skip-link:focus { top: 12px; }
 
@@ -57,7 +58,7 @@ h2 { margin: 0; font-size: clamp(36px, 5.6vw, 64px); font-weight: 700; line-heig
 .hero { position: relative; padding-top: clamp(72px, 11vw, 128px); overflow: hidden; text-align: center; }
 .hero-glow { position: absolute; inset: auto -20% 0; height: 70%; background: radial-gradient(50% 60% at 50% 100%, rgb(30 123 79 / .55), transparent 70%); pointer-events: none; }
 /* Brilho do início mais alto e intenso; o centro sobe dentro da área para não deixar borda reta */
-.hero > .hero-glow { height: 90%; background: radial-gradient(55% 45% at 50% 65%, rgb(30 123 79 / .75), transparent 70%); }
+.hero > .hero-glow { height: 90%; background: radial-gradient(55% 45% at 50% 65%, rgb(30 123 79 / .45), transparent 70%); }
 .hero-glow-bottom { height: 90%; opacity: .7; }
 .hero-copy { position: relative; display: flex; flex-direction: column; align-items: center; }
 .pill { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 28px; padding: 6px 14px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .14); background: rgb(255 255 255 / .04); font-size: 13px; color: rgb(238 242 236 / .8); }
